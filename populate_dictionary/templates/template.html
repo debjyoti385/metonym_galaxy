@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Message Board</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" type="text/css" />
+</head>
+<body>
+{% with nodes = get_flashed_messages() %}
+  {% if nodes %}
+    <ul class="flashes">
+    {% for node in nodes %}
+      <li class="flash {{node.get("type")}}">{{ node.get("content") }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+  <div class="container">
+    <!-- <h1><a href="{{url_for('index')}}">Message Board</a></h1> -->
+    <form action="{{url_for('create')}}" method="post" accept-charset="utf-8">
+      <div class="item">
+        <label> Word </label>
+        <input type="text" name="word" />
+      </div>
+      <!-- <div class="item">
+        <label>Meaning</label>
+        <input type="text" name="meaning" />
+      </div>
+      <div class="item">
+        <label>Sentence</label>
+        <input type="text" name="sentence" />
+      </div> -->
+      <div class="item btn-box">
+        <button type="submit" >Save</button>
+      </div>
+    </form>
+
+    <form action="{{url_for('search')}}" method="post" accept-charset="utf-8">
+      <div class="item">
+        <label>Search Word</label>
+        <input type="text" name="search_word" />
+      </div>
+            <div class="item btn-box">
+        <button type="submit" >Search</button>
+      </div>
+    </form>
+
+    <ul class="messages">
+      {% for node in nodes %}
+        <li class="message">
+          <h2>{{node.word}}</h2>
+          <p class="create_at"> ID : {{node.id}}</p>
+          <p class="content"><b> Meaning: </b>{{node.meaning}}</p>
+          <br/><br/>
+          <p class="content"><b>Sentences:</b> {{node.sentence}}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
