@@ -4,16 +4,44 @@
 }
 
 body {
-  font: 16px/1.47 'Consolas', sans-serif;
+  font: 12px/1.47 'Consolas', sans-serif;
   color: #444;
   background: #eee;
 }
 
-.container {
-  width: 570px;
-  margin: 0 auto;
+.container1 {
+  width: 450px;
+  /*margin: 0 auto;*/
+  position: absolute;
   background: #fff;
-  margin-top: 60px;
+  margin-top: 100px;
+  left:20px;
+  padding: 17px;
+  border: 7px solid #ddd;
+}
+
+.container2 {
+  width: 450px;
+  margin: 0 auto;
+  float: left;
+  position: relative;
+  background: #fff;
+  margin-top: 20px;
+  left:20px;
+  top:320px;
+  padding: 17px;
+  border: 7px solid #ddd;
+}
+
+.container3 {
+  width: 570px;
+  position: absolute;
+  top:25px;
+  right:20px;
+  vertical-align: top;
+  /*margin: 0 auto;*/
+  background: #fff;
+  margin-top: 10px;
   padding: 17px;
   border: 7px solid #ddd;
 }
@@ -31,8 +59,8 @@ form {width: 100%;}
 .item {
   clear: both;
   width: 100%;
-  padding: 25px 0;
-  margin: 20px 0;
+  padding: 10px 0;
+  margin: 10px 0;
   border-top: 1px solid #eee;
 }
 
@@ -88,6 +116,7 @@ input, textarea, button {outline: none}
 /* ------- messages ------ */
 
 .messages {
+  font: 14px/1.47 'Consolas', sans-serif;
   border-top: 1px solid #ddd;
 }
 

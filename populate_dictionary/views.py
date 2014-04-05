@@ -93,7 +93,7 @@ def create():
     count = results.count
     if count > 0 :
         flash(dict(type='warning', content='already exists'))
-        return redirect(url_for('index'))
+        return redirect(url_for('word', word=word))
 
     # meaning = request.form['meaning']
     # sentence = request.form['sentence']
