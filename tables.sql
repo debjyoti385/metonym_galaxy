@@ -21,4 +21,9 @@ CREATE TABLE `nodes` (
   `z` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `word` (`word`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `edges` (
+  `source` int(11) NOT NULL,
+  `dest` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;

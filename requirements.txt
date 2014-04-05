@@ -1,2 +1,4 @@
 CURD.py>=0.4.1
 Flask
+urllib2
+BeautifulSoup4
