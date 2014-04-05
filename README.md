@@ -46,5 +46,5 @@ Start querying words and get meanings with synonyms
 ```
 NOTE: Internet is required, if the word is not found in database it searches net and stores result in database
 ```
-![alt Screenshot 1](https://raw.github.com/debjyoti385/metonym_galaxy/screenshots/screen1.png)
-![alt Screenshot 2](https://raw.github.com/debjyoti385/metonym_galaxy/screenshots/screen2.png)
+![alt Screenshot 1](https://github.com/debjyoti385/metonym_galaxy/blob/master/screenshots/screen1.png)
+![alt Screenshot 2](https://github.com/debjyoti385/metonym_galaxy/blob/master/screenshots/screen2.png)
