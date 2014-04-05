@@ -5,10 +5,10 @@ First part of the project module to populate the meaning of words and their syno
 
 ##### REQUIREMENTS #####
 1. Python modules 
-* CURD.py>=0.4.1
-* Flask
-* urllib2
-* BeautifulSoup4
+    * CURD.py>=0.4.1
+    * Flask
+    * urllib2
+    * BeautifulSoup4
 
 To install them run 
 ```
