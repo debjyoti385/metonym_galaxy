@@ -4,46 +4,70 @@
 }
 
 body {
+
+}
+
+body {
   font: 12px/1.47 'Consolas', sans-serif;
   color: #444;
-  background: #eee;
+  /*background: #eee;*/
+  background-image: url(images/background.jpg);
+  background-position: center top;
+  background-size: 100% auto;
 }
 
 .container1 {
-  width: 450px;
+  width: 540px;
   /*margin: 0 auto;*/
   position: absolute;
   background: #fff;
-  margin-top: 100px;
+  margin-top: 10px;
   left:20px;
   padding: 17px;
   border: 7px solid #ddd;
+  opacity: 0.8;
 }
 
 .container2 {
-  width: 450px;
+  width: 540px;
   margin: 0 auto;
   float: left;
   position: relative;
   background: #fff;
   margin-top: 20px;
   left:20px;
-  top:320px;
+  top:150px;
   padding: 17px;
   border: 7px solid #ddd;
+  opacity: 0.8;
 }
 
 .container3 {
-  width: 570px;
+  width: 540px;
   position: absolute;
-  top:25px;
+  top:40px;
   right:20px;
   vertical-align: top;
   /*margin: 0 auto;*/
   background: #fff;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   padding: 17px;
   border: 7px solid #ddd;
+  /*opacity: 0.8;*/
+}
+
+.container4 {
+  width: 540px;
+  margin: 0 auto;
+  float: left;
+  position: absolute;
+  background: #fff;
+  /*margin-top: 20px;*/
+  left:20px;
+  top:360px;
+  padding: 17px;
+  border: 7px solid #ddd;
+  /*opacity: 0.8;*/
 }
 
 /* ----- title --- */
@@ -117,18 +141,35 @@ input, textarea, button {outline: none}
 
 .messages {
   font: 14px/1.47 'Consolas', sans-serif;
-  border-top: 1px solid #ddd;
+  /*border-top: 1px solid #ddd;*/
+}
+
+.word {
+  font: 20px/1.47 'Consolas', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-color: #fff;
+  border-top: 10px solid #111;
+  text-transform: uppercase;
+}
+.search_label {
+  font: 15px 'Consolas', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  /*font-color: #fff;*/
+  /*border-top: 10px solid #111;*/
+  text-transform: uppercase;
 }
 
 .message {
   padding: 20px 0;
   list-style: none;
-  border-bottom: 1px solid #ddd;
+  /*border-bottom: 1px solid #ddd;*/
 }
-
+/*
 .message h2 {
   font-size: 1em;
-}
+}*/
 
 .message .create_at {
   text-align: right;

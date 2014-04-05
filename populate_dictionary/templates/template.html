@@ -19,7 +19,7 @@
     <!-- <h1><a href="{{url_for('index')}}">Message Board</a></h1> -->
     <form action="{{url_for('create')}}" method="post" accept-charset="utf-8">
       <div class="item">
-        <label> Word </label>
+        <label class="search_label"> Word </label>
         <input type="text" name="word" />
       </div>
       <div class="item btn-box">
@@ -28,10 +28,9 @@
     </form>
     </div>
     <div class="container2">
-
     <form action="{{url_for('search')}}" method="post" accept-charset="utf-8">
       <div class="item">
-        <label>Search Word</label>
+        <label class="search_label">Search Word</label>
         <input type="text" name="search_word" />
       </div>
             <div class="item btn-box">
@@ -44,7 +43,23 @@
     <ul class="messages">
       {% for node in nodes %}
         <li class="message">
-          <h2>{{node.word}}</h2>
+          <h2 class="word">{{node.word}}</h2>
+          <p class="create_at"> ID : {{node.id}}</p>
+          <div class="item">
+            <p class="content"><b> Meaning: </b>{{node.meaning}}</p>
+          </div>
+          <div class="item">
+            <p class="content"><b>Sentences:</b> {{node.sentence}}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="container4">
+    <ul class="messages">
+      {% for node in nodes1 %}
+        <li class="message">
+          <h2 class="word">{{node.word}}</h2>
           <p class="create_at"> ID : {{node.id}}</p>
           <div class="item">
             <p class="content"><b> Meaning: </b>{{node.meaning}}</p>

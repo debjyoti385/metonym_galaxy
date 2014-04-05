@@ -22,9 +22,7 @@ def fetch_def(word):
     define = req.read()
     soup = BeautifulSoup(define)
     definition = soup.find_all('span','ssens')
-    #definition = soup.find_all("div",attrs={"class":'sblk'})
     try:
-        # return definition[0].text+'\n'
         defs = []
         i=1
         for found in definition:
@@ -44,10 +42,7 @@ def fetch_sentence(word):
     define = req.read()
     soup = BeautifulSoup(define)
     definition = soup.find_all('li','always-visible')
-    #definition = soup.find_all("div",attrs={"class":'sblk'})
     try:
-        # return definition[0].text+'\n'
-        # if you want to print multiple definitions
         defs = []
         i=1
         for found in definition:
@@ -124,14 +119,17 @@ def get_synonyms(word):
     result = [item for sublist in synonyms for item in sublist]
     return result
 
-def populate_synonyms(words):
+def populate_synonyms(words, id):
     i=0
     for word in words:
         if word :
             query = Nodes.where(Nodes.word.like(word)).select()
             results = query.execute()
+
             count = results.count
             if count > 0 :
+                for node in results.fetchall():
+                    Edges.create(source=id,dest=node.id) 
                 continue
 
             meaning=fetch_def(word)
@@ -142,6 +140,7 @@ def populate_synonyms(words):
 
             message = Nodes.create(
                 word=word, meaning=meaning, sentence=sentence, x =1, y=2, z = 3)
+            Edges.create(source=id,dest=message.id)
             i=i+1
             if i > 5:
                 break
@@ -166,11 +165,15 @@ def search():
 
 @app.route('/word/<word>')
 def word(word):
-    query = Nodes.where(Nodes.word.like(word)).select()
-    # query = Nodes.orderby(Nodes.id, desc=True).select()  # sort by created time
-    results = query.execute()
+    node = Nodes.findone(word=word)
+    # print node.id
+    results = Nodes.where(Nodes.id._in(Edges.where(Edges.source==node.id).distinct().select(Edges.dest))).select().execute()
     messages = results.fetchall()
-    return render_template('template.html', nodes=messages)
+    results = Nodes.where(Nodes.id==node.id).select().execute()
+    messages1 = results.fetchall()
+    # print type(messages)
+    # print results.fetchone().id
+    return render_template('template.html', nodes=messages, nodes1=messages1)
 
 @app.route('/create', methods=['POST'])
 def create():
@@ -179,15 +182,15 @@ def create():
     query = Nodes.where(Nodes.word.like(word)).select()
     results = query.execute()
     count = results.count
+
     if count > 0 :
         synonyms = get_synonyms(word)
         print synonyms
-        populate_synonyms(synonyms)
+        populate_synonyms(synonyms, results.fetchone().id)
         flash(dict(type='success', content='Meaning found '))
         return redirect(url_for('word', word=word))
 
-    # meaning = request.form['meaning']
-    # sentence = request.form['sentence']
+
     if word :
         meaning=fetch_def(word)
         if meaning == None :
@@ -199,7 +202,7 @@ def create():
             word=word, meaning=meaning, sentence=sentence, x =1, y=2, z = 3)
         synonyms = get_synonyms(word)
         print synonyms
-        populate_synonyms(synonyms)
+        populate_synonyms(synonyms, message.id)
         if message is not None:  # ok
             flash(dict(type='success', content='Meaning downloaded'))
             
