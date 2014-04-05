@@ -10,12 +10,14 @@ First part of the project module to populate the meaning of words and their syno
     * urllib2
     * BeautifulSoup4
 
-To install them run 
-```
-sudo pip intall -r requirements.txt
-```
+    To install them run 
+    ```
+    sudo pip intall -r requirements.txt
+    ```
+
 2. MySQL Server
-create tables in a mysql database
+
+Create tables in a mysql database
 and edit accordingly
 ```
 populate_dictionary/config.py
