@@ -19,6 +19,8 @@ class Nodes(Model):
     y = Field()
     z = Field()
 
-
+class Edges(Model):
+	source = Field()
+	dest = Field()
 
 Database.config(**app.config['DB_CONN_CFG'])
