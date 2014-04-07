@@ -142,7 +142,7 @@ def populate_synonyms(words, id):
                 word=word, meaning=meaning, sentence=sentence, x =1, y=2, z = 3)
             Edges.create(source=id,dest=message.id)
             i=i+1
-            if i > 5:
+            if i > 9:
                 break
     return
 
